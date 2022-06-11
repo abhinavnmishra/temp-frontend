@@ -16,39 +16,33 @@ import { useState } from "react";
 
     const getOtp = (e)=>{
         //send otp to phone no
-        e.preventDefault()
-        const handleSubmit = (event) => {
-            event.preventDefault();
-            let headers = new Headers();
-            headers.append("Content-Type", "application/json");
-            headers.append('Accept', 'application/json');
+        e.preventDefault();
+        console.log("here");
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+        headers.append('Accept', 'application/json');
 
 
-            let raw = JSON.stringify({"phone":phoneno});
+        let raw = JSON.stringify({"number":phoneno});
 
-            let requestOptions = {
-                method: 'POST',
-                body: raw,
-                headers: headers,
-                redirect: 'follow'
-            };
+        let requestOptions = {
+            method: 'POST',
+            body: raw,
+            headers: headers,
+            redirect: 'follow'
+        };
 
-            fetch("https://cfg22-backend.herokuapp.com/whatsapp/otp", requestOptions)
-                .then(response => response.text())
-                .then(result => {
-                    if (JSON.parse(result).success === true) {
-                        alert('OTP Sent');
-                        window.location.href = "summary";
-                    }
-                    else {
-                        alert("Some error occurred!");
-                    }
-                })
-                .catch(error => {
-                    console.log('error', error);
+        console.log(raw);
+        fetch("https://cfg22-backend.herokuapp.com/whatsapp/otp", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                alert('Success');
+            })
+            .catch(error => {
+                alert(error);
+                console.log('error', error);
 
-                });
-        }
+            });
     }
     const onSubmit = (e)=>{
         //send data to data base and compare the otp sent and entered otp
