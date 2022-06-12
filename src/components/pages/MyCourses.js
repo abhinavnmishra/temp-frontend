@@ -5,16 +5,19 @@ const MyCourses =()=>{
     const [name,setName] = useState("");
     const [course,setCourse] =useState("");
     const [feedback,setFeedback] = useState("");
-
      const history = useHistory();
+     console.log("My courses component");
     const fun1 = ()=>{
-        history.push("/user/beginer");
+        console.log("Beginer services clicked");
+        history.push("/services/beginer");
     }
     const fun2 = ()=>{
-        history.push("/user/intermediate");
+        console.log("Intermediate services clicked");
+        history.push("/services/intermediate");
     }
     const fun3 = ()=>{
-        history.push("/user/advanced");
+        console.log("Advanced services clicked");
+        history.push("/services/advanced");
     }
     const onSubmit =(e)=>{
         e.preventDefault();

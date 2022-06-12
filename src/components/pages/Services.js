@@ -11,10 +11,10 @@ const Services =()=>{
         history.push("/services/beginer");
     }
     const fun2 = ()=>{
-        history.push("/user/intermediate");
+        history.push("/services/intermediate");
     }
     const fun3 = ()=>{
-        history.push("/user/advanced");
+        history.push("/services/advanced");
     }
     const onSubmit =(e)=>{
         e.preventDefault();
