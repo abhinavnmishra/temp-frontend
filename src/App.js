@@ -24,21 +24,20 @@ function App() {
           <Route path='/' exact component={LoginPage} />
             <Route path='/login' exact component={Auth} />
           <Route path='/home' exact component={Home} />
-          <Route path='/services' component={Services} />
-          <Route path='/products' component={Products} />
-          <Route path='/sign-up' component={LoginPage} />
-          <Route path="/services/beginer"  component={Beginer} />
-          <><Route path="/mycourses" exact>
-            <MyCourses></MyCourses>
-          </Route><Route path ="/services/beginer" exact>
+          <Route path='/services' exact component={Services} />
+          <Route path='/products' exact component={Products} />
+          <Route path='/sign-up' exact component={LoginPage} />
+          <><Route path ="/services/beginer" exact>
               <Beginer></Beginer>
-            </Route><Route path="/intermediate" exact>
+            </Route><Route path="/services/intermediate" exact>
               <Intermidiate></Intermidiate>
-            </Route><Route path="/advanced" exact>
+            </Route><Route path="/services/advanced" exact>
               <Advanced></Advanced>
-            </Route><Route path="*">
-              <p>Invalid Route</p>
-            </Route></>
+            </Route>
+          </>
+          <Route path="*" exact>
+            <p>Invalid Route</p>
+          </Route>
         </Switch>
       </Router>
     </>
