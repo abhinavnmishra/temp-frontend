@@ -76,7 +76,7 @@ import { useState } from "react";
             .then(result => {
                 if (JSON.parse(result).success === true) {
                     alert('Registered successfully!');
-                    window.location.href = "/";
+                    window.location.href = "/login";
                 }
                 else {
                     alert("Some error occurred!");
@@ -92,7 +92,7 @@ import { useState } from "react";
         <div >
             <h4>Welcome</h4>
             <form  className="form">
-                <h2 className="form-heading">Login</h2>
+                <h2 className="form-heading">SIGNUP</h2>
                 <div className="form-item">
                 <label>Name</label>
                 <br></br>

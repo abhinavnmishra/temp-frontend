@@ -37,7 +37,7 @@ const Auth=()=>{
             .then(response => response.text())
             .then(result => {
                 if (JSON.parse(result).success === true) {
-                    alert('Registered successfully!');
+                    alert('Logged in successfully!');
                     window.location.href = "/home";
                 }
                 else {
