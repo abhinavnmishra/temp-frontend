@@ -76,7 +76,7 @@ import { useState } from "react";
             .then(result => {
                 if (JSON.parse(result).success === true) {
                     alert('Registered successfully!');
-                    window.location.href = "/home";
+                    window.location.href = "/";
                 }
                 else {
                     alert("Some error occurred!");
