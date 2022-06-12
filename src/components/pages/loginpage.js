@@ -17,7 +17,7 @@ import { useState } from "react";
     const getOtp = (e)=>{
         //send otp to phone no
         e.preventDefault();
-        console.log("here");
+
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
         headers.append('Accept', 'application/json');
@@ -46,14 +46,46 @@ import { useState } from "react";
     }
     const onSubmit = (e)=>{
         //send data to data base and compare the otp sent and entered otp
-        e.preventDeafult()
+        e.preventDefault();
+
         const user = {
             name : name,
-            phoneno : phoneno,
+            phone : phoneno,
             password : password,
-            aadharno : aadharno,
+            adhaar : aadharno,
             otp:otp
         }
+
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+        headers.append('Accept', 'application/json');
+
+
+        let raw = JSON.stringify(user);
+
+        let requestOptions = {
+            method: 'POST',
+            body: raw,
+            headers: headers,
+            redirect: 'follow'
+        };
+
+        console.log(raw);
+        fetch("https://cfg22-backend.herokuapp.com/api/v1/Lady/register", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                if (JSON.parse(result).success === true) {
+                    alert('Registered successfully!');
+                    window.location.href = "/home";
+                }
+                else {
+                    alert("Some error occurred!");
+                }
+            })
+            .catch(error => {
+                alert("Some error occurred!");
+                console.log('error', error);
+            });
     }
 
     return(
